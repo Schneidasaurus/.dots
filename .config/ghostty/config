@@ -3,7 +3,7 @@
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
-#   /home/andrew/.config/ghostty/config
+#   /home/andrew/config/ghostty/config
 #
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
@@ -49,7 +49,7 @@
 # resize-overlay-duration = 4s 200ms
 command = /usr/bin/fish
 
-background-image = ~/.config/ghostty/backgrounds/Lofi - Anime Girl.jpeg
+background-image = ~/.local/share/ghostty/backgrounds/Lofi - Anime Girl Balcony.jpeg
 background-image-opacity = 0.03
 background-image-fit = cover
 
