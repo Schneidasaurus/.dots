@@ -1,0 +1,27 @@
+# $schema: https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook
+---
+- name: main
+  hosts: all
+  connection: local
+
+  tasks:
+    - name: install dependencies
+      community.general.pacman:
+        executable: yay
+        name:
+          - go
+          - lua
+          - lua51
+          - luarocks
+          - lua-luarocks
+          - nodejs
+          - npm
+          - rust
+          - tmux
+          - fish
+          - hyprland
+          -
+
+    - name: install tree-sitter-cli
+      community.general.cargo:
+        name: tree-sitter-cli

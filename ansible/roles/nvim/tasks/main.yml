@@ -1,0 +1,16 @@
+- name: install packages
+  community.general.pacman:
+    name:
+      - neovim
+      - lua
+      - lua51
+      - luarocks
+      - lua-luarocks
+      - rust
+      - go
+      - python-pip
+      - python-pynvim
+
+- name: install tree-sitter-cli
+  community.general.cargo:
+    name: tree-sitter-cli
