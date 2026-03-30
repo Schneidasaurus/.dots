@@ -1,3 +1,4 @@
+# $schema: https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks
 - name: install packages
   community.general.pacman:
     name:
@@ -14,3 +15,9 @@
 - name: install tree-sitter-cli
   community.general.cargo:
     name: tree-sitter-cli
+
+- name: setup config link
+  ansible.builtin.file:
+    src: "{{ dots_dir }}/.config/nvim"
+    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    state: link
