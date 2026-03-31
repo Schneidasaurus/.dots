@@ -1,11 +1,7 @@
 # $schema: https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook
 ---
 - hosts: localhost
-  roles:
-    - nvim
-    - tmux
-    - btop
-    - eza
-    - fastfetch
-    - fish
-    - ghostty
+  tasks:
+    - name: test
+      ansible.builtin.debug:
+        var: ansible_facts

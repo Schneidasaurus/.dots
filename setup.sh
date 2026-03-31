@@ -4,7 +4,8 @@ DOTS_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 yay --noconfirm -S --needed ansible
 
-ansible-playbook $DOTS_DIR/ansible/local.yml
+ansible-playbook $DOTS_DIR/ansible/local.yml --extra-vars "dots_dir=$DOTS_DIR" --ask-become-pass -CD
+
 # yay -S git
 #
 # ln -s $DOTS_DIR/tmux.conf $HOME/tmux.conf

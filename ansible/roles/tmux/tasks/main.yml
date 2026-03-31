@@ -1,0 +1,16 @@
+# $schema https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks
+- name: install dependencies
+  become: true
+  community.general.pacman:
+    name: tmux
+
+- name: setup links
+  ansible.builtin.file:
+    src: "{{ dots_dir }}/.tmux.conf"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux.conf"
+    state: link
+
+- name: clone tmux package manager
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/plugins/tpm"

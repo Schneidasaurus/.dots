@@ -1,5 +1,6 @@
 # $schema: https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks
 - name: install packages
+  become: true
   community.general.pacman:
     name:
       - neovim
@@ -19,5 +20,5 @@
 - name: setup config link
   ansible.builtin.file:
     src: "{{ dots_dir }}/.config/nvim"
-    dest: "{{ ansible_env.HOME }}/.config/nvim"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/nvim"
     state: link

@@ -1,0 +1,11 @@
+# $schema: https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks
+- name: install packages
+  become: true
+  community.general.pacman:
+    name: eza
+
+- name: setup link
+  ansible.builtin.file:
+    src: "{{ dots_dir }}/.config/eza"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/eza"
+    state: link
