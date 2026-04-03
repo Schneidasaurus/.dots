@@ -10,6 +10,18 @@
     dest: "{{ ansible_facts['env']['HOME'] }}/.tmux.conf"
     state: link
 
+- name: setup tmux service unit
+  ansible.builtin.copy:
+    src: tmux.service
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/systemd/user/"
+
+- name: enable/start tmux service
+  ansible.builtin.systemd_service:
+    name: tmux.service
+    scope: user
+    enabled: true
+    state: started
+
 - name: clone tmux package manager
   ansible.builtin.git:
     repo: https://github.com/tmux-plugins/tpm
