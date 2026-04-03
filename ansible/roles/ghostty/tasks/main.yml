@@ -9,3 +9,10 @@
     src: "{{ dots_dir }}/.config/ghostty"
     dest: "{{ ansible_facts['env']['HOME'] }}/.config/ghostty"
     state: link
+
+- name: setup systemd service
+  ansible.builtin.systemd_service:
+    name: app-com.mitchellh.ghostty.service
+    scope: user
+    enabled: true
+    state: started
