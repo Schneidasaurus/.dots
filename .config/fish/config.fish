@@ -1,4 +1,8 @@
 if status is-interactive
+	if not set -q TMUX
+		exec tmux attach
+	end
+
 	# Commands to run in interactive sessions can go here
 	set -gx EDITOR nvim
 	set -gx BROWSER brave
