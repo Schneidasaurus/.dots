@@ -6,8 +6,8 @@
 
 - name: setup links
   ansible.builtin.file:
-    src: "{{ dots_dir }}/.tmux.conf"
-    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux.conf"
+    src: "{{ dots_dir }}/.config/tmux"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/tmux"
     state: link
 
 - name: setup tmux service unit
