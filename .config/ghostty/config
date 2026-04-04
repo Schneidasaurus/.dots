@@ -55,5 +55,6 @@ command = /usr/bin/fish
 background-opacity = 0.87
 
 theme = TokyoNight Night
+font-family = FiraMono Nerd Font
 
 maximize = true

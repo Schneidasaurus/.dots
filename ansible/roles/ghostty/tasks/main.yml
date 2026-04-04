@@ -2,7 +2,9 @@
 - name: install packages
   become: true
   community.general.pacman:
-    name: ghostty
+    name:
+      - ghostty
+      - otf-firamono-nerd
 
 - name: setup link
   ansible.builtin.file:
