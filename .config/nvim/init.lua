@@ -404,7 +404,7 @@ require('lazy').setup({
       local builtin = require 'telescope.builtin'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+      -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set({ 'n', 'v' }, '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
@@ -415,6 +415,23 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       vim.keymap.set('i', 'jj', '<Esc><Esc>', {})
+
+      local is_inside_work_tree = {}
+      vim.keymap.set('n', '<leader>sf', function()
+        local opts = {}
+
+        local cwd = vim.fn.getcwd()
+        if is_inside_work_tree[cwd] == nil then
+          vim.fn.system 'git rev-parse --is-inside-work-tree'
+          is_inside_work_tree[cwd] = vim.v.shell_error == 0
+        end
+
+        if is_inside_work_tree[cwd] then
+          builtin.git_files(opts)
+        else
+          builtin.find_files(opts)
+        end
+      end, { desc = '[S]earch [P]roject Files' })
 
       -- This runs on LSP attach per buffer (see main LSP attach function in 'neovim/nvim-lspconfig' config for more info,
       -- it is better explained there). This allows easily switching between pickers if you prefer using something else!
