@@ -1,13 +1,11 @@
 # $schema: https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks
 - name: install packages
+  become: true
   community.general.pacman:
-    name:
-      - hyprland # main package
-      - hyprpaper # wallpaper manager
-      - swaync # notification daemon
+    name: waybar
 
 - name: setup links
   ansible.builtin.file:
-    src: "{{ dots_dir }}/.config/hypr"
-    dest: "{{ ansible_facts['env']['HOME'] }}/.config/hypr"
+    src: "{{ dots_dir }}/.config/waybar"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/waybar"
     state: link
