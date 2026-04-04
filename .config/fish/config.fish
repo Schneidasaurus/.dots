@@ -1,5 +1,8 @@
 if status is-interactive
 	if not set -q TMUX
+		if not tmux ls
+			systemctl --user start tmux.service
+		end
 		exec tmux attach
 	end
 
