@@ -5,6 +5,7 @@
     name:
       - ghostty
       - otf-firamono-nerd
+      - ttf-nerd-fonts-symbols
 
 - name: setup link
   ansible.builtin.file:

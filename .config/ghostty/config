@@ -56,5 +56,8 @@ background-opacity = 0.87
 
 theme = TokyoNight Night
 font-family = FiraMono Nerd Font
+font-family = Symbols Nerd Font
+# font-family = Font Awesome 7 Free
+# font-family = Font Awesome 7 Brands
 
 maximize = true
