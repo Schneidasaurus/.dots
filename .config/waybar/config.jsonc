@@ -19,7 +19,8 @@
         "mpd",
         "idle_inhibitor",
         "pulseaudio",
-        "network",
+        "network#wifi",
+        "network#eth",
         "power-profiles-daemon",
         "cpu",
         "memory",
@@ -164,15 +165,20 @@
         "power-saver": ""
       }
     },
-    "network": {
+    "network#wifi": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "interface": "enp7s0",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "interface": "wlan0",
+        "format-wifi": "({signalStrength}%) {icon}",
+        "tooltip-format": "{essid} ({ipaddr})",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ]
+    },
+    "network#eth": {
+        "interface": "enp7s0",
+        "format-ethernet": "󰈀",
+        "format-disconnected": ""
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
