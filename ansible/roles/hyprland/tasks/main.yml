@@ -6,6 +6,7 @@
       - hyprland # main package
       - hyprpaper # wallpaper manager
       - swaync # notification daemon
+      - hyprlauncher # app launcher
 
 - name: setup links
   ansible.builtin.file:
