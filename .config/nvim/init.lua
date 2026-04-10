@@ -655,6 +655,7 @@ require('lazy').setup({
         'bash-language-server',
         'ansible-language-server',
         'yaml-language-server',
+        'json-lsp',
         -- 'htmx-lsp',
         -- You can add other tools here that you want Mason to install
       })
@@ -668,6 +669,7 @@ require('lazy').setup({
         ['bashls'] = {},
         ['ansiblels'] = {},
         ['yamlls'] = {},
+        ['jsonls'] = {},
         -- ['htmx'] = {},
       })
       for name, server in pairs(servers) do
