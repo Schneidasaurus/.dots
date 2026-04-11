@@ -3,7 +3,7 @@ if status is-interactive
 		if not tmux ls
 			systemctl --user start tmux.service
 		end
-		exec tmux attach
+		tmux attach && exit
 	end
 
 	# Commands to run in interactive sessions can go here
