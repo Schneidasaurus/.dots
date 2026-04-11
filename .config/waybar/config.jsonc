@@ -6,15 +6,6 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    // "modules-left": [
-    //     "hyprland/workspaces",
-    //     "hyprland/submap",
-    //     "sway/scratchpad",
-    //     "custom/media"
-    // ],
-    // "modules-center": [
-    //     "hyprland/window"
-    // ],
     "modules-left": [
         "tray"
     ],
@@ -24,24 +15,16 @@
     "modules-right": [
         "mpd",
         "idle_inhibitor",
-        // "pulseaudio",
-        "keyboard-state",
         "pulseaudio#speaker",
         "pulseaudio#mic",
         "network#wifi",
         "network#eth",
-        // "power-profiles-daemon",
-        // "cpu",
-        // "memory",
-        // "temperature",
         "backlight",
-        // "keyboard-state",
-        // "hyprland/language",
         "battery",
         "battery#bat2",
         "clock",
-        // "tray",
-        "custom/power"
+        "custom/power_menu"
+        // "group/session"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -55,15 +38,6 @@
             "5": "",
             // "active": "",
             "default": ""
-        }
-    },
-    "keyboard-state": {
-        // "numlock": true,
-        "capslock": true,
-        "format": "{icon}",
-        "format-icons": {
-            "locked": "󰪛",
-            "unlocked": ""
         }
     },
     "hyprland/submap": {
@@ -299,7 +273,7 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/power": {
+    "custom/power_menu": {
         "format": "⏻ ",
         "tooltip": false,
         "menu": "on-click",
@@ -310,5 +284,17 @@
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate"
         }
-    }
+    },
+    // "group/session": {
+    //     "orientation": "inherit",
+    //     "modules": [
+    //         "custom/power",
+    //         "custom/sleep",
+    //         "custom/logout",
+    //         "custom/lock",
+    //     ]
+    // },
+    // "custom/power": {
+    //     "format": "{}"
+    // }
 }
