@@ -6,32 +6,40 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
+    // "modules-left": [
+    //     "hyprland/workspaces",
+    //     "hyprland/submap",
+    //     "sway/scratchpad",
+    //     "custom/media"
+    // ],
+    // "modules-center": [
+    //     "hyprland/window"
+    // ],
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/submap",
-        "sway/scratchpad",
-        "custom/media"
+        "tray"
     ],
     "modules-center": [
-        "hyprland/window"
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "mpd",
         "idle_inhibitor",
-        "pulseaudio",
+        // "pulseaudio",
+        "pulseaudio#speaker",
+        "pulseaudio#mic",
         "network#wifi",
         "network#eth",
-        "power-profiles-daemon",
-        "cpu",
-        "memory",
-        "temperature",
-        "backlight",
-        "keyboard-state",
-        "hyprland/language",
+        // "power-profiles-daemon",
+        // "cpu",
+        // "memory",
+        // "temperature",
+        // "backlight",
+        // "keyboard-state",
+        // "hyprland/language",
         "battery",
         "battery#bat2",
         "clock",
-        "tray",
+        // "tray",
         "custom/power"
     ],
     // Modules configuration
@@ -65,7 +73,10 @@
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": [
+            "",
+            ""
+        ],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
@@ -128,12 +139,26 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery": {
         "states": {
@@ -141,38 +166,62 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "{icon}",
         "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        // "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        // "format-icons": [
+        //     "",
+        //     "",
+        //     "",
+        //     "",
+        //     ""
+        // ]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
     "network#wifi": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "interface": "wlan0",
-        "format-wifi": "({signalStrength}%) {icon}",
+        "format-wifi": "{icon}",
         "tooltip-format": "{essid} ({ipaddr})",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ]
+        "format-icons": [
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ]
     },
     "network#eth": {
         "interface": "enp7s0",
@@ -181,11 +230,12 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        // "format": "{volume}% {icon}  {format_source}",
+        "format": "{icon}  {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -194,9 +244,45 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
+    },
+    "pulseaudio#speaker": {
+        // "scroll-step": 1, // %, can be a float
+        // "format": "{volume}% {icon}  {format_source}",
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "pulseaudio#mic": {
+        // "scroll-step": 1, // %, can be a float
+        // "format": "{volume}% {icon}  {format_source}",
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "amixer set Capture toggle"
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -211,15 +297,15 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : "⏻ ",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
     }
 }
