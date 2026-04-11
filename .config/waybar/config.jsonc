@@ -25,6 +25,7 @@
         "mpd",
         "idle_inhibitor",
         // "pulseaudio",
+        "keyboard-state",
         "pulseaudio#speaker",
         "pulseaudio#mic",
         "network#wifi",
@@ -33,7 +34,7 @@
         // "cpu",
         // "memory",
         // "temperature",
-        // "backlight",
+        "backlight",
         // "keyboard-state",
         // "hyprland/language",
         "battery",
@@ -45,24 +46,24 @@
     // Modules configuration
     "hyprland/workspaces": {
         "all-outputs": true,
-        "format": "{name}: {icon}",
+        "format": "{icon}",
         "format-icons": {
             "1": "",
             "2": "\ue63c",
             "3": "",
             "4": "",
             "5": "",
-            "active": "",
+            // "active": "",
             "default": ""
         }
     },
     "keyboard-state": {
-        "numlock": true,
+        // "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{icon}",
         "format-icons": {
-            "locked": "",
-            "unlocked": ""
+            "locked": "󰪛",
+            "unlocked": ""
         }
     },
     "hyprland/submap": {
@@ -147,7 +148,9 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{icon}",
+        "tooltip": true,
+        "tooltip-format": "{percent}%",
         "format-icons": [
             "",
             "",
