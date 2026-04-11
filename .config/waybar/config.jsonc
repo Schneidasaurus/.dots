@@ -23,8 +23,8 @@
         "battery",
         "battery#bat2",
         "clock",
-        "custom/power_menu"
-        // "group/session"
+        // "custom/power_menu"
+        "group/session"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -285,16 +285,31 @@
             "hibernate": "systemctl hibernate"
         }
     },
-    // "group/session": {
-    //     "orientation": "inherit",
-    //     "modules": [
-    //         "custom/power",
-    //         "custom/sleep",
-    //         "custom/logout",
-    //         "custom/lock",
-    //     ]
-    // },
-    // "custom/power": {
-    //     "format": "{}"
-    // }
+    "group/session": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/power",
+            "custom/logout",
+            "custom/restart"
+            // "custom/lock"
+        ]
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "on-click": "shutdown now"
+    },
+    "custom/restart": {
+        "format": "󰜉 ",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/logout": {
+        "format": "󰗽 ",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    }
 }
